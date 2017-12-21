@@ -14,12 +14,4 @@ class Test < BKB
 end
 
 t = Test.new(100000000, [:BTC, :ETH], '2017-01-01', '2017-12-30')
-start_time = Time.now
 t.run
-puts ''
-puts '=' * 50
-puts '|| 卖单统计: ' + "#{t.ask_orders.compact.count}"
-puts '|| 买单统计: ' + "#{t.bid_orders.compact.count}"
-puts '|| 账户余额: ' + "#{t.balances}"
-puts '|| 回测耗时: ' + "#{Time.now - start_time}"
-puts '=' * 50

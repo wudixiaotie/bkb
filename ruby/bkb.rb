@@ -18,11 +18,12 @@ class BKB
   end
 
   def run
+    start_time = Time.now
     begin_timestamp = Time.parse(@begin).to_i
     end_timestamp = Time.parse(@end).to_i
     today = begin_timestamp
     while today <= end_timestamp
-      p "get data on #{Time.at(today).to_s}"
+      puts "get data on #{Time.at(today).to_s}"
 
       tick_arr = []
       now = today
@@ -43,10 +44,19 @@ class BKB
       last_tick.mkts.each do |mkt, tdata|
         assets_value += @account.mkts[mkt] * tdata.latest
       end
-      p "#{Time.at(today).strftime('%F %T')} assets_value: #{assets_value} available:#{@account.usdt}"
+      puts "#{Time.at(today).strftime('%F %T')} assets_value: #{assets_value} available:#{@account.usdt}"
 
       today += 86400
     end
+
+    puts ''
+    puts '=' * 50
+    puts '|| 初始资金: ' + "USDT: #{@account.initial}"
+    puts '|| 卖单统计: ' + "#{ask_orders.compact.count}"
+    puts '|| 买单统计: ' + "#{bid_orders.compact.count}"
+    puts '|| 账户余额: ' + "#{balances}"
+    puts '|| 回测耗时: ' + "#{Time.now - start_time}"
+    puts '=' * 50
   end
 
   def place_order(mkt, value, price, side, today)
@@ -59,7 +69,7 @@ class BKB
         @account.mkts[mkt] -= volume
         @exchange.order_book.push(order)
       else
-        # p "[warning][RiskControl] The #{mkt} in your account is not enough"
+        # puts "[warning][RiskControl] The #{mkt} in your account is not enough"
       end
     else
       if @account.usdt >= value
@@ -67,7 +77,7 @@ class BKB
         @account.mkts[mkt] += volume
         @exchange.order_book.push(order)
       else
-        # p "[warning][RiskControl] The usdt in your account is not enough"
+        # puts "[warning][RiskControl] The usdt in your account is not enough"
       end
     end
   end

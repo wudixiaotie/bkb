@@ -1,8 +1,10 @@
 class Account
+  attr_reader :initial
   attr_accessor :usdt
   attr_accessor :mkts
 
   def initialize(usdt, mkt_arr)
+    @initial = usdt
     @usdt = usdt
 
     @mkts = {}
