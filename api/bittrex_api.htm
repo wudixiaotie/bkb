@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://bittrex.com/Home/Api -->
+<html style="" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths gr__bittrex_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bittrex.com - Developer's Guide - Api</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="7idlnzmL4NvGeBJ4e1eiwU1Wd2bQDSLtFu-tIMh4cY4">
+    
+
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="shortcut icon" href="https://bittrex.com/Content/img/logos/bittrex.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="https://bittrex.com/Content/img/logos/bittrex.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="https://bittrex.com/Content/img/logos/bittrex-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="https://bittrex.com/Content/img/logos/bittrex-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://bittrex.com/Content/img/logos/bittrex-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="https://bittrex.com/Content/img/logos/bittrex-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://bittrex.com/Content/img/logos/bittrex-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://bittrex.com/Content/img/logos/bittrex-16.png">
+    <link rel="apple-touch-icon" href="https://bittrex.com/Content/img/logos/bittrex-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://bittrex.com/Content/img/logos/bittrex-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://bittrex.com/Content/img/logos/bittrex-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://bittrex.com/Content/img/logos/bittrex-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://bittrex.com/Content/img/logos/bittrex-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://bittrex.com/Content/img/logos/bittrex-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://bittrex.com/Content/img/logos/bittrex-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://bittrex.com/Content/img/logos/bittrex-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://bittrex.com/Content/img/logos/bittrex-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="/Content/img/logos/bittrex-144.png">
+    <meta name="msapplication-config" content="/Content/img/logos/browserconfig.xml">
+    <!-- ****** faviconit.com favicons ****** -->
+
+    <!-- Core CSS -->
+    <link href="./bittrex_api_files/cryptocoins.css" rel="stylesheet">
+    <link href="./bittrex_api_files/tpcore" rel="stylesheet">
+
+    <link href="./bittrex_api_files/datatables" rel="stylesheet">
+
+    <link href="./bittrex_api_files/bcore" rel="stylesheet">
+
+    <script src="./bittrex_api_files/modernizr"></script>
+
+    <link href="./bittrex_api_files/layout" rel="stylesheet">
+
+
+    
+
+    <!-- open sans font -->
+    <link href="./bittrex_api_files/css" rel="stylesheet noreferrer" type="text/css">
+
+<style>#cVim-command-bar, #cVim-command-bar-mode, #cVim-command-bar-input, #cVim-command-bar-search-results,
+.cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left,
+.cVim-completion-item .cVim-right {
+  font-family: Helvetica, Helvetica Neue, Neue, sans-serif, monospace, Arial;
+  font-size: 10pt !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#cVim-command-bar {
+  position: fixed;
+  z-index: 2147483646;
+  background-color: #1b1d1e;
+  color: #bbb;
+  display: none;
+  box-sizing: content-box;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+#cVim-command-bar-mode {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding-left: 2px;
+  height: 100%;
+  width: 10px;
+  padding-top: 2px;
+  color: #888;
+}
+
+#cVim-command-bar-input {
+  background-color: #1b1d1e;
+  color: #bbb;
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: calc(100% - 10px);
+  position: absolute;
+}
+
+#cVim-command-bar-search-results {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2147483647;
+  left: 0;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  background-color: #1c1c1c;
+}
+
+.cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right {
+  text-overflow: ellipsis;
+  padding: 1px;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cVim-completion-item:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.cVim-completion-item {
+  width: 100%; left: 0;
+  color: #bcbcbc;
+}
+
+.cVim-completion-item[active] {
+  width: 100%; left: 0;
+  color: #1b1d1e;
+  background-color: #f1f1f1;
+}
+
+.cVim-completion-item[active] span {
+  color: #1b1d1e;
+}
+
+.cVim-completion-item .cVim-left {
+  color: #fff;
+  width: 37%;
+}
+
+.cVim-completion-item .cVim-right {
+  font-style: italic;
+  color: #888;
+  width: 57%;
+}
+
+
+#cVim-link-container, .cVim-link-hint,
+#cVim-hud, #cVim-status-bar {
+  font-family: Helvetica, Helvetica Neue, Neue, sans-serif, monospace, Arial;
+  font-size: 10pt !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#cVim-link-container {
+  position: absolute;
+  pointer-events: none;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  z-index: 2147483647;
+}
+
+.cVim-link-hint {
+  position: absolute;
+  color: #302505 !important;
+  background-color: #ffd76e !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  font-size: 8pt !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: 1px solid #ad810c;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.25) !important;
+}
+
+.cVim-link-hint_match {
+  color: #777;
+  text-transform: uppercase !important;
+}
+
+
+#cVim-hud {
+  background-color: rgba(28,28,28,0.9);
+  position: fixed !important;
+  transition: right 0.2s ease-out;
+  z-index: 24724289;
+}
+
+#cVim-hud span {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #8f8f8f;
+  font-size: 10pt;
+}
+
+#cVim-frames-outline {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999999999;
+  box-sizing: border-box;
+  border: 3px solid yellow;
+}
+</style></head>
+
+<body id="main-body" data-gr-c-s-loaded="true">
+
+    <!-- header -->
+    <div id="header-navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid container-header">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://bittrex.com/Home/Markets">
+                    <img src="./bittrex_api_files/bittrex-logo-transparent.png" alt="Bittrex.com" height="24">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown" id="dash_menu_btc2">
+                        <a href="https://bittrex.com/Home/Api#dash_menu_btc" class="dropdown-toggle" data-toggle="collapse">
+                            <i class="fa fa-btc"></i>
+                            <span>Markets</span>
+                            <b class="caret"></b>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown" id="dash_menu_fiat2">
+                        <a href="https://bittrex.com/Home/Api#dash_menu_fiat" class="dropdown-toggle" data-toggle="collapse">
+                            <i class="fa fa-usd"></i>
+                            <span>Markets</span>
+                            <b class="caret"></b>
+                        </a>
+                    </li>
+                </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="javascript:document.getElementById(&#39;logoutForm&#39;).submit()" role="button" title="Logout">
+                <i class="fa fa-sign-out"></i>
+                <span class="hidden-sm">&nbsp; Logout</span>
+            </a>
+        </li>
+    </ul>
+<form action="https://bittrex.com/Account/LogOff" class="navbar-right" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="l-jzNDQbYh5L7yzUPuW88DLP7SBwvM0Hk08LIPN4OIi4RihY0zYQnavKtcmKQzMx1GCPIXO05E8LIb5U2_z8Gyy-90A_PNnEcLgPORRBf8Ztc2kjtVXDC0mRxINpkYF2T7oYGg2"></form>
+                <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="https://bittrex.com/Home/Api#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flask"></i><span class="hidden-sm">&nbsp; Lab</span>  <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="https://bittrex.com/Lab/Any2Any">
+                                        <i class="fa fa-random"></i>
+                                        <span>&nbsp; Any 2 Any</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://bittrex.com/Lab/AutoSell">
+                                        <i class="fa fa-recycle"></i>
+                                        <span>&nbsp; Auto-Sell</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://bittrex.com/Lab/ProfitLoss">
+                                        <i class="fa fa-line-chart"></i>
+                                        <span>&nbsp; Profit-Loss</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="dash_menu_history">
+                            <a href="https://bittrex.com/History">
+                                <i class="fa fa-calendar"></i>
+                                <span class="hidden-sm">&nbsp; Orders</span>
+                            </a>
+                        </li>
+                        <li id="dash_menu_wallet">
+                            <a href="https://bittrex.com/Balance">
+                                <i class="fa fa-btc"></i>
+                                <span class="hidden-sm">&nbsp; Wallets</span>
+                            </a>
+                        </li>
+                        <li id="dash_menu_settings">
+                            <a href="https://bittrex.com/Manage">
+                                <i class="fa fa-cog"></i>
+                                <span class="hidden-sm">&nbsp; Settings</span>
+                            </a>
+                        </li>
+                    <li class="dropdown">
+                        <a href="https://bittrex.com/Home/Api#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-question-circle"></i><span class="hidden-sm">&nbsp; Help</span>  <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li id="dash_menu_news">
+                                <a href="https://bittrex.com/News">
+                                    <i class="fa fa-bullhorn"></i>
+                                    <span>&nbsp; News</span>
+                                </a>
+                            </li>
+                            <li id="dash_menu_status">
+                                <a href="https://bittrex.com/Status">
+                                    <i class="fa fa-lightbulb-o"></i>
+                                    <span>&nbsp; Site Status</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="https://bittrex.com/Home/About">About</a></li>
+                            <li><a href="https://bittrex.com/Privacy">Your Privacy and Security</a></li>
+                            <li><a href="https://bittrex.com/Home/Cookies">Cookie Policy</a></li>
+                            <li><a href="https://bittrex.com/Home/Terms">Terms and Conditions</a></li>
+                            <li><a href="https://bittrex.com/Home/Api">API Documentation</a></li>
+                            <li><a href="https://bittrex.com/Fees">Fees</a></li>
+                            <li><a href="https://bittrex.zendesk.com/hc/en-us" rel="noreferrer">Support</a></li>
+                            <li><a href="https://bittrex.com/Home/Contact">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+
+    <div id="media-width-detection-element" style=""></div>
+    <div id="layout-navigation-sticky-wrapper" class="sticky-wrapper is-sticky" style="height: 1px;"><div id="layout-navigation" class="col-sm-12 menu-wrapper" style="position: fixed; top: 50px;">
+        <div id="dash_menu_btc" class="collapse menu-content" style="z-index:300">
+            <p class="menu-sort">
+                Sort By:
+                <select data-bind="options: menu.availableSort, optionsText: &#39;sortName&#39;, value: menu.selectedSort, optionsCaption: &#39;Choose...&#39;"><option value="">Choose...</option><option value="">Name</option><option value="">Percent Change</option><option value="">Last Price</option><option value="">Volume</option><option value="">Newest</option><option value="">Oldest</option></select>
+                Max Rows:
+                <select data-bind="options: menu.availableRows, optionsText: &#39;sortName&#39;, value: menu.selectedRows, optionsCaption: &#39;Choose...&#39;"><option value="">Choose...</option><option value="">All</option><option value="">2</option><option value="">3</option><option value="">4</option><option value="">5</option><option value="">6</option></select>
+                Search:
+                <input data-bind="value: menu.filter, valueUpdate: &#39;afterkeydown&#39;">
+            </p>
+            <table data-bind="foreach: menu.marketsBtcRows" class="menu-table"></table>
+        </div>
+        <div id="dash_menu_fiat" class="collapse menu-content" style="z-index:300">
+            <p class="menu-sort">
+                Sort By:
+                <select data-bind="options: menu.availableSort, optionsText: &#39;sortName&#39;, value: menu.selectedSort, optionsCaption: &#39;Choose...&#39;"><option value="">Choose...</option><option value="">Name</option><option value="">Percent Change</option><option value="">Last Price</option><option value="">Volume</option><option value="">Newest</option><option value="">Oldest</option></select>
+                Max Rows:
+                <select data-bind="options: menu.availableRows, optionsText: &#39;sortName&#39;, value: menu.selectedRows, optionsCaption: &#39;Choose...&#39;"><option value="">Choose...</option><option value="">All</option><option value="">2</option><option value="">3</option><option value="">4</option><option value="">5</option><option value="">6</option></select>
+                Search:
+                <input data-bind="value: menu.filter, valueUpdate: &#39;afterkeydown&#39;">
+            </p>
+            <table data-bind="foreach: menu.marketsFiatRows" class="menu-table"></table>
+        </div>
+    </div></div>
+    <div id="alert-news" class="alert alert-info alert-override" style="display:none; margin-top:48px; margin-bottom:0px">
+        <i class="fa fa-exclamation-sign"></i>
+        <span id="alert-news-text"></span>
+        <a href="https://bittrex.com/News">&nbsp;For more information, see the News page.</a>
+    </div>
+
+    <div id="body-container">
+        <div id="event-store"></div>
+        <div class="content">
+            
+
+
+
+
+<div id="pad-wrapper">
+    <div class="document-wrapper">
+
+        <h1>Developer's Guide - Api</h1>
+
+        <h2>Overview</h2>
+        <p>
+            Bittrex provides a simple and powerful REST API to allow you to programatically perform nearly all actions you can from our web interface.  All requests use the <code>application/json</code>
+            content type and go over <code>https</code>.  The base url is <code>https://bittrex.com/api/{version}/</code>.  All requests are GET requests and all responses come in a default response object with
+            the result in the result field.  Always check the <code>success</code> flag to ensure that your API call succeeded.<br>
+            <br>
+            We are currently restricting orders to 500 open orders and 200,000 orders a day.  We reserve the right to change these settings as we tune the system.  If you are affected by these
+            limits as an active trader, please email <a href="mailto:support@bittrex.com?subject=Throttling%20problem">support@bittrex.com</a>.<br>
+            <br>
+            If you have any questions, feedback or recommendation for API support you can post a question in our support center.
+        </p>
+
+        <h2>Getting Started</h2>
+        <ul>
+            <li>General</li>
+            <li>Authentication</li>
+            <li>API Reference</li>
+            <li>Client Libraries</li>
+        </ul>
+
+        <h2>Sample Applications and libraries</h2>
+        <ul>
+            <li><a href="http://coinotify.com/">Coinotify.com</a></li>
+            <li><a href="https://github.com/Toorop/go-bittrex">go wrapper for API</a></li>
+            <li><a href="https://github.com/mwerner/bittrex"> ruby gem api warpper</a></li>
+            <li><a href="https://www.npmjs.org/package/node.bittrex.api">node.js api wrapper</a></li>
+            <li><a href="https://github.com/ericsomdahl/python-bittrex">python api wrapper</a></li>
+        </ul>
+        <h2 id="#general">General</h2>
+        We provide a simple RESTful API.  All calls are GETs and should be called via <code>https</code>.  We will support n-1 versions of the API.  Our current stable API is v1 and v1.1 is currently in testing.  
+        The endpoints have a standard format as follows:<br><br>
+<pre>https://bittrex.com/api/{version}/{method}?param=value</pre>
+
+        <h2 id="#authentication">Authentication</h2>
+        <p>
+            In the spirit of keeping things simple, we offer an easy to manage API Key authentication method.  You can have multiple API keys, each with their own
+            level of rights.  To manage your API keys please goto Settings-&gt;Manage API Keys.  Note, you MUST have 2fa enabled to create an API key for your own safety.
+
+            API Rights
+            </p><ul>
+                <li>Read Info - You can only view the balances, orders, and other details of the account</li>
+                <li>Withdraw - We allow you to programatically withdraw any currency to an address you provide.  This can be used to quick arbitrage exchanges or move money into cold storage after thresholds.</li>
+                <li>Trade Limit - This allows the API key to place LIMIT buy and sell orders</li>
+                <li>Trade Market - This allows the API key to place MARKET buy and sell orders - WARNING: Do no enable this unless you know what you're doing.  Market buy/sells are extremely dangerous.</li>
+            </ul>
+            <br>
+            <b><font size="+1" color="red">V1 will be deprecated on 7/20.  Please move to V1.1 immediately.</font></b><br>
+            For this version, we use a standard HMAC-SHA512 signing.  Append <code>apikey</code> and <code>nonce</code> to your request
+            and calculate the HMAC hash and include it under an <code>apisign</code> header.  Note: the nonce is not respected right now but will be enforced later.<br><br>
+<pre>$apikey='xxx';
+$apisecret='xxx';
+$nonce=time();
+$uri='https://bittrex.com/api/v1.1/market/getopenorders?apikey='.$apikey.'&amp;nonce='.$nonce;
+$sign=hash_hmac('sha512',$uri,$apisecret);
+$ch = curl_init($uri);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('apisign:'.$sign));
+$execResult = curl_exec($ch);
+$obj = json_decode($execResult);
+</pre>
+
+            <h4>DEPRECATING</h4>
+            
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/getbalances?apikey=apikey    
+</pre>    
+
+
+        <p></p>
+        <h2 id="#APIReference">API Reference</h2>
+        Our APIs are broken into three distinct groups
+        <ul>
+            <li>Public - Public information available without an API key</li>
+            <li>Account - For managing your account</li>
+            <li>Market - For programatic trading of crypto currencies</li>
+        </ul>
+
+        <h3>Public Api</h3>
+
+        <h4>/public/getmarkets</h4>
+        <p>
+            Used to get the open and available trading markets at Bittrex along with other meta data.
+        </p>
+        Parameters
+        <p>
+            None
+        </p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/public/getmarkets    
+</pre>    
+
+Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"MarketCurrency" : "LTC",
+			"BaseCurrency" : "BTC",
+			"MarketCurrencyLong" : "Litecoin",
+			"BaseCurrencyLong" : "Bitcoin",
+			"MinTradeSize" : 0.01000000,
+			"MarketName" : "BTC-LTC",
+			"IsActive" : true,
+			"Created" : "2014-02-13T00:00:00"
+		}, {
+			"MarketCurrency" : "DOGE",
+			"BaseCurrency" : "BTC",
+			"MarketCurrencyLong" : "Dogecoin",
+			"BaseCurrencyLong" : "Bitcoin",
+			"MinTradeSize" : 100.00000000,
+			"MarketName" : "BTC-DOGE",
+			"IsActive" : true,
+			"Created" : "2014-02-13T00:00:00"
+		}
+    ]
+}
+
+</pre>
+
+
+        <h4>/public/getcurrencies</h4>
+        <p>
+            Used to get all supported currencies at Bittrex along with other meta data.
+        </p>
+        Parameters
+        <p>
+            None
+        </p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/public/getcurrencies    
+</pre>    
+
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"Currency" : "BTC",
+			"CurrencyLong" : "Bitcoin",
+			"MinConfirmation" : 2,
+			"TxFee" : 0.00020000,
+			"IsActive" : true,
+			"CoinType" : "BITCOIN",
+			"BaseAddress" : null
+		}, {
+			"Currency" : "LTC",
+			"CurrencyLong" : "Litecoin",
+			"MinConfirmation" : 5,
+			"TxFee" : 0.00200000,
+			"IsActive" : true,
+			"CoinType" : "BITCOIN",
+			"BaseAddress" : null
+		}
+    ]
+}
+
+</pre>
+
+        <h4>/public/getticker</h4>
+        <p>
+            Used to get the current tick values for a market.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>market</code></td>
+                    <td>required</td>
+                    <td>a string literal for the market (ex: BTC-LTC)</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/public/getticker    
+</pre>    
+
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : {
+		"Bid" : 2.05670368,
+		"Ask" : 3.35579531,
+		"Last" : 3.35579531
+	}
+}
+</pre>
+
+        <h4>/public/getmarketsummaries</h4>
+        <p>
+            Used to get the last 24 hour summary of all active exchanges
+        </p>
+        Parameters
+        <p>
+            None
+        </p>
+
+Request:
+
+<pre>https://bittrex.com/api/v1.1/public/getmarketsummaries    
+</pre>    
+
+    
+        Response
+<pre>    {
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"MarketName" : "BTC-888",
+			"High" : 0.00000919,
+			"Low" : 0.00000820,
+			"Volume" : 74339.61396015,
+			"Last" : 0.00000820,
+			"BaseVolume" : 0.64966963,
+			"TimeStamp" : "2014-07-09T07:19:30.15",
+			"Bid" : 0.00000820,
+			"Ask" : 0.00000831,
+			"OpenBuyOrders" : 15,
+			"OpenSellOrders" : 15,
+			"PrevDay" : 0.00000821,
+			"Created" : "2014-03-20T06:00:00",
+			"DisplayMarketName" : null
+		}, {
+			"MarketName" : "BTC-A3C",
+			"High" : 0.00000072,
+			"Low" : 0.00000001,
+			"Volume" : 166340678.42280999,
+			"Last" : 0.00000005,
+			"BaseVolume" : 17.59720424,
+			"TimeStamp" : "2014-07-09T07:21:40.51",
+			"Bid" : 0.00000004,
+			"Ask" : 0.00000005,
+			"OpenBuyOrders" : 18,
+			"OpenSellOrders" : 18,
+			"PrevDay" : 0.00000002,
+			"Created" : "2014-05-30T07:57:49.637",
+			"DisplayMarketName" : null
+		}
+    ]
+}
+</pre>
+
+
+        <h4>/public/getmarketsummary</h4>
+        <p>
+            Used to get the last 24 hour summary of all active exchanges
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>market</code></td>
+                    <td>required</td>
+                    <td>a string literal for the market (ex: BTC-LTC)</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-ltc    
+</pre>    
+
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"MarketName" : "BTC-LTC",
+			"High" : 0.01350000,
+			"Low" : 0.01200000,
+			"Volume" : 3833.97619253,
+			"Last" : 0.01349998,
+			"BaseVolume" : 47.03987026,
+			"TimeStamp" : "2014-07-09T07:22:16.72",
+			"Bid" : 0.01271001,
+			"Ask" : 0.01291100,
+			"OpenBuyOrders" : 45,
+			"OpenSellOrders" : 45,
+			"PrevDay" : 0.01229501,
+			"Created" : "2014-02-13T00:00:00",
+			"DisplayMarketName" : null
+		}
+    ]
+}
+</pre>
+
+        <h4>/public/getorderbook</h4>
+        <p>
+            Used to get retrieve the orderbook for a given market
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>market</code></td>
+                    <td>required</td>
+                    <td>a string literal for the market (ex: BTC-LTC)</td>
+                </tr>
+                <tr>
+                    <td><code>type</code></td>
+                    <td>required</td>
+                    <td>buy, sell or both to identify the type of orderbook to return. </td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/public/getorderbook?market=BTC-LTC&amp;type=both    
+</pre>    
+
+
+
+        Response
+<pre>    {
+	"success" : true,
+	"message" : "",
+	"result" : {
+		"buy" : [{
+				"Quantity" : 12.37000000,
+				"Rate" : 0.02525000
+			}
+		],
+		"sell" : [{
+				"Quantity" : 32.55412402,
+				"Rate" : 0.02540000
+			}, {
+				"Quantity" : 60.00000000,
+				"Rate" : 0.02550000
+			}, {
+				"Quantity" : 60.00000000,
+				"Rate" : 0.02575000
+			}, {
+				"Quantity" : 84.00000000,
+				"Rate" : 0.02600000
+			}
+		]
+	}
+}
+
+</pre>
+
+        <h4>/public/getmarkethistory</h4>
+        <p>
+            Used to retrieve the latest trades that have occured for a specific market.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>market</code></td>
+                    <td>required</td>
+                    <td>a string literal for the market (ex: BTC-LTC)</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/public/getmarkethistory?market=BTC-DOGE    
+</pre>    
+
+        Response - List of trades objects
+<pre>    {
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"Id" : 319435,
+			"TimeStamp" : "2014-07-09T03:21:20.08",
+			"Quantity" : 0.30802438,
+			"Price" : 0.01263400,
+			"Total" : 0.00389158,
+			"FillType" : "FILL",
+			"OrderType" : "BUY"
+		}, {
+			"Id" : 319433,
+			"TimeStamp" : "2014-07-09T03:21:20.08",
+			"Quantity" : 0.31820814,
+			"Price" : 0.01262800,
+			"Total" : 0.00401833,
+			"FillType" : "PARTIAL_FILL",
+			"OrderType" : "BUY"
+		}, {
+			"Id" : 319379,
+			"TimeStamp" : "2014-07-09T02:58:48.127",
+			"Quantity" : 49.64643541,
+			"Price" : 0.01263200,
+			"Total" : 0.62713377,
+			"FillType" : "FILL",
+			"OrderType" : "SELL"
+		}, {
+			"Id" : 319378,
+			"TimeStamp" : "2014-07-09T02:58:46.27",
+			"Quantity" : 0.35356459,
+			"Price" : 0.01263200,
+			"Total" : 0.00446622,
+			"FillType" : "PARTIAL_FILL",
+			"OrderType" : "BUY"
+		}
+	]
+}
+
+</pre>
+
+        <h3>Market Apis</h3>
+        <h4>/market/buylimit</h4>
+        <p>
+            Used to place a buy order in a specific market.  Use <code>buylimit</code> to place limit orders.
+            Make sure you have the proper permissions set on your API keys for this call to work
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>market</code></td>
+                    <td>required</td>
+                    <td>a string literal for the market (ex: BTC-LTC)</td>
+                </tr>
+                <tr>
+                    <td><code>quantity</code></td>
+                    <td>required</td>
+                    <td>the amount to purchase</td>
+                </tr>
+                <tr>
+                    <td><code>rate</code></td>
+                    <td>required</td>
+                    <td>the rate at which to place the order. </td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/market/buylimit?apikey=API_KEY&amp;market=BTC-LTC&amp;quantity=1.2&amp;rate=1.3    
+</pre>    
+
+        Response - Returns you the order uuid
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : {
+			"uuid" : "e606d53c-8d70-11e3-94b5-425861b86ab6"
+		}
+}
+</pre>
+
+        <h4>/market/selllimit</h4>
+        <p>
+            Used to place an sell order in a specific market.  Use <code>selllimit</code> to place limit orders.
+            Make sure you have the proper permissions set on your API keys for this call to work
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>market</code></td>
+                    <td>required</td>
+                    <td>a string literal for the market (ex: BTC-LTC)</td>
+                </tr>
+                <tr>
+                    <td><code>quantity</code></td>
+                    <td>required</td>
+                    <td>the amount to purchase</td>
+                </tr>
+                <tr>
+                    <td><code>rate</code></td>
+                    <td>required</td>
+                    <td>the rate at which to place the order</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/market/selllimit?apikey=API_KEY&amp;market=BTC-LTC&amp;quantity=1.2&amp;rate=1.3    
+</pre>    
+
+
+
+        Response - Returns you the order uuid
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : {
+			"uuid" : "614c34e4-8d71-11e3-94b5-425861b86ab6"
+		}
+}
+</pre>
+
+
+        <h4>/market/cancel</h4>
+        <p>
+            Used to cancel a buy or sell order.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>uuid</code></td>
+                    <td>required</td>
+                    <td>uuid of buy or sell order</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/market/cancel?apikey=API_KEY&amp;uuid=ORDER_UUID    
+</pre>    
+
+        Response - Returns you the order uuid
+<pre>{
+    "success" : true,
+    "message" : "",
+    "result" : null
+}
+</pre>
+
+        <h4>/market/getopenorders</h4>
+        <p>
+            Get all orders that you currently have opened.  A specific market can be requested
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>market</code></td>
+                    <td>optional</td>
+                    <td>a string literal for the market (ie. BTC-LTC)</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/market/getopenorders?apikey=API_KEY&amp;market=BTC-LTC    
+</pre>    
+
+        Response
+<pre>    {
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"Uuid" : null,
+			"OrderUuid" : "09aa5bb6-8232-41aa-9b78-a5a1093e0211",
+			"Exchange" : "BTC-LTC",
+			"OrderType" : "LIMIT_SELL",
+			"Quantity" : 5.00000000,
+			"QuantityRemaining" : 5.00000000,
+			"Limit" : 2.00000000,
+			"CommissionPaid" : 0.00000000,
+			"Price" : 0.00000000,
+			"PricePerUnit" : null,
+			"Opened" : "2014-07-09T03:55:48.77",
+			"Closed" : null,
+			"CancelInitiated" : false,
+			"ImmediateOrCancel" : false,
+			"IsConditional" : false,
+			"Condition" : null,
+			"ConditionTarget" : null
+		}, {
+			"Uuid" : null,
+			"OrderUuid" : "8925d746-bc9f-4684-b1aa-e507467aaa99",
+			"Exchange" : "BTC-LTC",
+			"OrderType" : "LIMIT_BUY",
+			"Quantity" : 100000.00000000,
+			"QuantityRemaining" : 100000.00000000,
+			"Limit" : 0.00000001,
+			"CommissionPaid" : 0.00000000,
+			"Price" : 0.00000000,
+			"PricePerUnit" : null,
+			"Opened" : "2014-07-09T03:55:48.583",
+			"Closed" : null,
+			"CancelInitiated" : false,
+			"ImmediateOrCancel" : false,
+			"IsConditional" : false,
+			"Condition" : null,
+			"ConditionTarget" : null
+		}
+	]
+}
+
+
+</pre>
+
+
+        <h3>Account Api</h3>
+        <h4>/account/getbalances</h4>
+        <p>
+            Used to retrieve all balances from your account
+        </p>
+        Parameters
+        <p>
+            None
+        </p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/getbalances?apikey=API_KEY    
+</pre>    
+
+        Response
+<pre>    {
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"Currency" : "DOGE",
+			"Balance" : 0.00000000,
+			"Available" : 0.00000000,
+			"Pending" : 0.00000000,
+			"CryptoAddress" : "DLxcEt3AatMyr2NTatzjsfHNoB9NT62HiF",
+			"Requested" : false,
+			"Uuid" : null
+
+		}, {
+			"Currency" : "BTC",
+			"Balance" : 14.21549076,
+			"Available" : 14.21549076,
+			"Pending" : 0.00000000,
+			"CryptoAddress" : "1Mrcdr6715hjda34pdXuLqXcju6qgwHA31",
+			"Requested" : false,
+			"Uuid" : null
+		}
+	]
+}
+</pre>
+
+        <h4>/account/getbalance</h4>
+        <p>
+            Used to retrieve the balance from your account for a specific currency.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>currency</code></td>
+                    <td>required</td>
+                    <td>a string literal for the currency (ex: LTC)</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/getbalance?apikey=API_KEY&amp;currency=BTC    
+</pre>    
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : {
+		"Currency" : "BTC",
+		"Balance" : 4.21549076,
+		"Available" : 4.21549076,
+		"Pending" : 0.00000000,
+		"CryptoAddress" : "1MacMr6715hjds342dXuLqXcju6fgwHA31",
+		"Requested" : false,
+		"Uuid" : null
+	}
+}
+
+</pre>
+
+        <h4>/account/getdepositaddress</h4>
+        <p>
+            Used to retrieve or generate an address for a specific currency.  If one does not exist, the call will fail and return ADDRESS_GENERATING until one is available.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>currency</code></td>
+                    <td>required</td>
+                    <td>a string literal for the currency (ie. BTC)</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/getdepositaddress?apikey=API_KEY&amp;currency=VTC    
+</pre>    
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : {
+		"Currency" : "VTC",
+		"Address" : "Vy5SKeKGXUHKS2WVpJ76HYuKAu3URastUo"
+	}
+}
+</pre>
+
+        <h4>/account/withdraw</h4>
+        <p>
+            Used to withdraw funds from your account. <i>note: please account for txfee.</i>
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>currency</code></td>
+                    <td>required</td>
+                    <td>a string literal for the currency (ie. BTC)</td>
+                </tr>
+                <tr>
+                    <td><code>quantity</code></td>
+                    <td>required</td>
+                    <td>the quantity of coins to withdraw</td>
+                </tr>
+                <tr>
+                    <td><code>address</code></td>
+                    <td>required</td>
+                    <td>the address where to send the funds.</td>
+                </tr>
+                <tr>
+                    <td><code>paymentid</code></td>
+                    <td>optional</td>
+                    <td>used for CryptoNotes/BitShareX/Nxt optional field (memo/paymentid)</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/withdraw?apikey=API_KEY&amp;currency=EAC&amp;quantity=20.40&amp;address=EAC_ADDRESS    
+</pre>    
+
+        Response - Returns you the withdrawal uuid
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : {
+			"uuid" : "68b5a16c-92de-11e3-ba3b-425861b86ab6"
+	}
+}
+</pre>
+        <h4>/account/getorder</h4>
+        <p>
+            Used to retrieve a single order by uuid.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>uuid</code></td>
+                    <td>required</td>
+                    <td>the uuid of the buy or sell order</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/getorder&amp;uuid=0cb4c4e4-bdc7-4e13-8c13-430e587d2cc1    
+</pre>    
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : {
+		"AccountId" : null,
+		"OrderUuid" : "0cb4c4e4-bdc7-4e13-8c13-430e587d2cc1",
+		"Exchange" : "BTC-SHLD",
+		"Type" : "LIMIT_BUY",
+		"Quantity" : 1000.00000000,
+		"QuantityRemaining" : 1000.00000000,
+		"Limit" : 0.00000001,
+		"Reserved" : 0.00001000,
+		"ReserveRemaining" : 0.00001000,
+		"CommissionReserved" : 0.00000002,
+		"CommissionReserveRemaining" : 0.00000002,
+		"CommissionPaid" : 0.00000000,
+		"Price" : 0.00000000,
+		"PricePerUnit" : null,
+		"Opened" : "2014-07-13T07:45:46.27",
+		"Closed" : null,
+		"IsOpen" : true,
+		"Sentinel" : "6c454604-22e2-4fb4-892e-179eede20972",
+		"CancelInitiated" : false,
+		"ImmediateOrCancel" : false,
+		"IsConditional" : false,
+		"Condition" : "NONE",
+		"ConditionTarget" : null
+	}
+}
+</pre>
+
+        <h4>/account/getorderhistory</h4>
+        <p>
+            Used to retrieve your order history.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>market</code></td>
+                    <td>optional</td>
+                    <td>a string literal for the market (ie. BTC-LTC).  If ommited, will return for all markets</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/getorderhistory    
+</pre>    
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"OrderUuid" : "fd97d393-e9b9-4dd1-9dbf-f288fc72a185",
+			"Exchange" : "BTC-LTC",
+			"TimeStamp" : "2014-07-09T04:01:00.667",
+			"OrderType" : "LIMIT_BUY",
+			"Limit" : 0.00000001,
+			"Quantity" : 100000.00000000,
+			"QuantityRemaining" : 100000.00000000,
+			"Commission" : 0.00000000,
+			"Price" : 0.00000000,
+			"PricePerUnit" : null,
+			"IsConditional" : false,
+			"Condition" : null,
+			"ConditionTarget" : null,
+			"ImmediateOrCancel" : false
+		}, {
+			"OrderUuid" : "17fd64d1-f4bd-4fb6-adb9-42ec68b8697d",
+			"Exchange" : "BTC-ZS",
+			"TimeStamp" : "2014-07-08T20:38:58.317",
+			"OrderType" : "LIMIT_SELL",
+			"Limit" : 0.00002950,
+			"Quantity" : 667.03644955,
+			"QuantityRemaining" : 0.00000000,
+			"Commission" : 0.00004921,
+			"Price" : 0.01968424,
+			"PricePerUnit" : 0.00002950,
+			"IsConditional" : false,
+			"Condition" : null,
+			"ConditionTarget" : null,
+			"ImmediateOrCancel" : false
+		}
+	]
+}
+</pre>
+
+        <h4>/account/getwithdrawalhistory </h4>
+        <p>
+            Used to retrieve your withdrawal history.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>currency</code></td>
+                    <td>optional</td>
+                    <td>a string literal for the currecy (ie. BTC).  If omitted, will return for all currencies</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/getwithdrawalhistory?currency=BTC    
+</pre>    
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"PaymentUuid" : "b52c7a5c-90c6-4c6e-835c-e16df12708b1",
+			"Currency" : "BTC",
+			"Amount" : 17.00000000,
+			"Address" : "1DeaaFBdbB5nrHj87x3NHS4onvw1GPNyAu",
+			"Opened" : "2014-07-09T04:24:47.217",
+			"Authorized" : true,
+			"PendingPayment" : false,
+			"TxCost" : 0.00020000,
+			"TxId" : null,
+			"Canceled" : true,
+			"InvalidAddress" : false
+		}, {
+			"PaymentUuid" : "f293da98-788c-4188-a8f9-8ec2c33fdfcf",
+			"Currency" : "XC",
+			"Amount" : 7513.75121715,
+			"Address" : "XVnSMgAd7EonF2Dgc4c9K14L12RBaW5S5J",
+			"Opened" : "2014-07-08T23:13:31.83",
+			"Authorized" : true,
+			"PendingPayment" : false,
+			"TxCost" : 0.00002000,
+			"TxId" : "b4a575c2a71c7e56d02ab8e26bb1ef0a2f6cf2094f6ca2116476a569c1e84f6e",
+			"Canceled" : false,
+			"InvalidAddress" : false
+		}
+	]
+}
+
+
+</pre>
+
+        <h4>/account/getdeposithistory</h4>
+        <p>
+            Used to retrieve your deposit history.
+        </p>
+        Parameters
+        <p>
+            </p><table>
+                <tbody><tr>
+                    <td>parameter</td>
+                    <td>required</td>
+                    <td>description</td>
+                </tr>
+                <tr>
+                    <td><code>currency</code></td>
+                    <td>optional</td>
+                    <td>a string literal for the currecy (ie. BTC).  If omitted, will return for all currencies</td>
+                </tr>
+            </tbody></table>
+        <p></p>
+        
+Request:
+
+<pre>https://bittrex.com/api/v1.1/account/getwithdrawalhistory?currency=BTC    
+</pre>    
+
+        Response
+<pre>{
+	"success" : true,
+	"message" : "",
+	"result" : [{
+			"PaymentUuid" : "554ec664-8842-4fe9-b491-06225becbd59",
+			"Currency" : "BTC",
+			"Amount" : 0.00156121,
+			"Address" : "1K37yQZaGrPKNTZ5KNP792xw8f7XbXxetE",
+			"Opened" : "2014-07-11T03:41:25.323",
+			"Authorized" : true,
+			"PendingPayment" : false,
+			"TxCost" : 0.00020000,
+			"TxId" : "70cf6fdccb9bd38e1a930e13e4ae6299d678ed6902da710fa3cc8d164f9be126",
+			"Canceled" : false,
+			"InvalidAddress" : false
+		}, {
+			"PaymentUuid" : "d3fdf168-3d8e-40b6-8fe4-f46e2a7035ea",
+			"Currency" : "BTC",
+			"Amount" : 0.11800000,
+			"Address" : "1Mrcar6715hjds34pdXuLqXcju6QgwHA31",
+			"O
+			pened" : "2014-07-03T20:27:07.163",
+			"Authorized" : true,
+			"PendingPayment" : false,
+			"TxCost" : 0.00020000,
+			"TxId" : "3efd41b3a051433a888eed3ecc174c1d025a5e2b486eb418eaaec5efddda22de",
+			"Canceled" : false,
+			"InvalidAddress" : false
+		}
+    ]
+}
+    </pre></div>
+</div>
+        </div>
+
+        <!-- START Navigation FOOTER -->
+        <div id="footmainbkg" style="width:100%; height: 78px; background-color: #999; margin-top:40px; margin-bottom: 47px;">
+            <div class="footmain" style="width:1140px; margin: 0 auto; background-color: #999;">
+                <div class="footermlinkl">
+                    <li><a href="https://bittrex.com/Home/About" style="text-decoration: underline;">About</a></li>
+                    <li><a href="https://bittrex.com/Privacy" style="text-decoration: underline;">Privacy</a></li>
+                </div>
+                <div class="footermlinkl">
+                    <li><a href="https://bittrex.com/Status" style="text-decoration: underline;">Website Status</a></li>
+                    <li><a href="https://bittrex.com/Home/Api" style="text-decoration: underline;">API Documentation</a></li>
+                </div>
+                <div class="footermlinkl">
+                    <li><a href="https://bittrex.com/Home/Cookies" style="text-decoration: underline;">Cookies</a></li>
+                    <li><a href="https://bittrex.com/Home/Terms" style="text-decoration: underline;">Terms</a></li>
+                </div>
+                <div class="footermlinkl">
+                    <li><a href="https://bittrex.com/Fees" style="text-decoration: underline;">Fees</a></li>
+                    <li><a href="https://bittrex.com/Home/Contact" style="text-decoration: underline;">Press</a></li>
+                </div>
+
+                <div class="footermlinkr" style="float: right;">
+                    <li style="float: right;"><a href="https://twitter.com/bittrexexchange" style="text-decoration: underline;"><i class="fa fa-twitter" style="padding-right: 6px;"></i>Follow Us on Twitter</a></li>
+                    <li style="float: right;"><a href="https://www.facebook.com/bittrex" style="text-decoration: underline;"><i class="fa fa-facebook" style="padding-right: 6px;"></i>Like Us on Facebook</a></li>
+                </div>
+                <div class="footermlinkr" style="float: right;">
+                    <li><a href="https://bittrex.zendesk.com/hc/en-us" rel="noreferrer" style="text-decoration: underline;"><div>Support</div></a></li>
+                    <li><a href="https://bittrex.com/Home/Contact" style="text-decoration: underline;"><div>Contact</div></a></li>
+                </div>
+
+            </div>
+        </div>
+        <!-- END Navigation FOOTER -->
+        <div class="hidden-lg" style="margin-bottom: 47px"></div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" aria-labelledby="resfreshModalLabel" aria-hidden="true" id="refreshModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="resfreshModalLabel">
+                        Bittrex has updated, please refresh your browser
+                    </h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="window.location.reload(true); return false;"><span class="glyphicon glyphicon-refresh"></span>&nbsp;Refresh</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="footer-navigation" class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid container-footer">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a>
+                            <span>© 2017 Bittrex, INC</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a>
+                            <span data-bind="text:menu.displayTotalBtc">Total BTC Volume = 0.0000</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span data-bind="text:menu.displayTotalEth">Total ETH Volume = 0.0000</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span data-bind="text:navigation.displayBitcoinUsd">1 BTC = $17928.5525</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-wifi socket-status-error" data-bind="css: { &#39;socket-status-normal&#39;: socket.connectionStatus() == &#39;Connected&#39;, &#39;socket-status-warning&#39;: socket.connectionStatus() == &#39;Slow&#39; || socket.connectionStatus() == &#39;Reconnecting&#39;, &#39;socket-status-error&#39;: socket.connectionStatus() == &#39;Disconnected&#39; }"></i>
+                            <span data-bind="text:socket.displayStatus">Socket Status = Disconnected</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="./bittrex_api_files/email-decode.min.js"></script><script>
+        var bittrex = bittrex || {};
+    </script>
+
+        <script>
+            bittrex.isAuthenticated = true;
+        </script>
+
+    <!-- Core Packages  -->
+    <script src="./bittrex_api_files/tpcore(1)"></script>
+
+    <script src="./bittrex_api_files/datatables(1)"></script>
+
+
+    <!-- Utility Packages -->
+    <script src="./bittrex_api_files/utility"></script>
+
+
+    <!-- This is created dynamically and can't be bundled -->
+    <script src="./bittrex_api_files/hubs"></script>
+
+    <!-- Layout DataProvider Packages -->
+    <!-- TODO: Need to add the legacy fallback code -->
+    <script src="./bittrex_api_files/bittrexDataProvider"></script>
+
+    <script src="./bittrex_api_files/layoutDataProvider"></script>
+
+
+    <!-- Page DataProvider Packages -->
+    
+
+    <!-- Layout View Packages -->
+    <script src="./bittrex_api_files/bittrexViewModel"></script>
+
+    <script src="./bittrex_api_files/layoutViewModel"></script>
+
+
+    <!-- Page View Packages -->
+    
+
+
+</body><div id="cVim-status-bar" style="top: 0px;"></div><iframe src="./bittrex_api_files/cmdline_frame.html" id="cVim-command-frame"></iframe></html>

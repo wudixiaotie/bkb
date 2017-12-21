@@ -1,0 +1,6 @@
+[package]
+name = "bkb"
+version = "0.1.0"
+authors = ["KevinXiao <wudixiaotie@gmail.com>"]
+
+[dependencies]
